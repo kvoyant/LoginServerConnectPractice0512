@@ -2,12 +2,14 @@ package com.tjeit.loginserverconnectpractice0512;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 
 import com.tjeit.loginserverconnectpractice0512.databinding.ActivityLoginBinding;
 import com.tjeit.loginserverconnectpractice0512.utils.ConnectServer;
 import com.tjeit.loginserverconnectpractice0512.utils.ContextUtil;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends BaseActivity {
@@ -43,7 +45,29 @@ public class LoginActivity extends BaseActivity {
                 ConnectServer.postRequestSignIn(mContext, inputId, inputPw, new ConnectServer.JsonResponsHandler() {
                     @Override
                     public void onResponse(JSONObject json) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    int code = json.getInt("code");
 
+                                    if(code == 200) {
+//                                      로그인 성공
+
+                                    }
+                                    else {
+//                                        로그인 실패 alert dialog
+                                        AlertDialog.Builder alert = new AlertDialog.Builder(mContext);
+                                        alert.setTitle("로그인 실패 알림");
+                                        alert.setMessage(json.getString("message"));
+                                        alert.setPositiveButton("확인", null);
+                                        alert.show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
                     }
                 });
 
