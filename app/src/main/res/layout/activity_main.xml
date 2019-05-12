@@ -8,7 +8,7 @@
         android:orientation="vertical"
         tools:context=".LoginActivity"
         android:gravity="center_horizontal">
-        
+
         <ImageView
             android:layout_marginTop="20dp"
             android:layout_width="100dp"
@@ -23,44 +23,55 @@
             android:textColor="#000000"
             android:textSize="25sp"/>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="20dp"
             android:orientation="vertical"
-            android:background="#FFFFFF"
-            android:gravity="center">
-
+            android:background="#FFFFFF">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="ID"/>
 
             <EditText
                 android:id="@+id/loginIdEdt"
-                android:layout_marginTop="20dp"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"/>
+
             <EditText
-                android:id="@+id/passwordEdt"
-                android:layout_marginTop="20dp"
+                android:id="@+id/loginPwEdt"
+                android:inputType="textPassword"
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_marginTop="20dp"
-                android:text="Sign In"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Sign in"/>
 
         </LinearLayout>
-        
+
         <TextView
-            android:id="@+id/signTxt"
+            android:id="@+id/signUpTxt"
             android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="계정없으면 회원가입해 !"/>
+            android:text="Don't have an account? Create Now!"/>
 
 
     </LinearLayout>
