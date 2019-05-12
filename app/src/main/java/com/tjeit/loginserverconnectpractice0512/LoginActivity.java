@@ -29,7 +29,10 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
 //                1.아이디와 비번 입력을 받아오기
 //                2.받아온 아이디와 비번이 정말로 올바른 회원인지? 검사
-//                아이디 비번이 모두
+//                아이디 비번이 모두 동일한 사람이 회원명부에 있는지?
+
+//                test123 / test123
+//                iu001 / Test!123
             }
         });
     }
