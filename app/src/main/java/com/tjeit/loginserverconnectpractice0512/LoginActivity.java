@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.tjeit.loginserverconnectpractice0512.databinding.ActivityMainBinding;
+import com.tjeit.loginserverconnectpractice0512.utils.ConnectServer;
+
+import org.json.JSONObject;
 
 public class LoginActivity extends BaseActivity {
 
@@ -27,11 +30,21 @@ public class LoginActivity extends BaseActivity {
         act.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 //                1.아이디와 비번 입력을 받아오기
+                String inputId = act.loginIdEdt.getText().toString();
+                String inputPw = act.loginPwEdt.getText().toString();
+
 //                2.받아온 아이디와 비번이 정말로 올바른 회원인지? 검사
 //                아이디 비번이 모두 동일한 사람이 회원명부에 있는지?
+                ConnectServer.postRequestSignIn(mContext, inputId, inputPw, new ConnectServer.JsonResponsHandler() {
+                    @Override
+                    public void onResponse(JSONObject json) {
 
-//                test123 / test123
+                    }
+                });
+
+//                test123 / Test!123
 //                iu001 / Test!123
             }
         });

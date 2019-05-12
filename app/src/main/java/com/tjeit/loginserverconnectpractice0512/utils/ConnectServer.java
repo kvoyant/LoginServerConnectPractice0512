@@ -41,6 +41,7 @@ public class ConnectServer {
 
         Request request = new Request.Builder()
                 .url(BASE_URL+"/auth")
+                .post(requestBody)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
