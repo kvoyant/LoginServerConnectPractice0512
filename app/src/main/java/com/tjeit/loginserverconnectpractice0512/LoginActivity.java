@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.tjeit.loginserverconnectpractice0512.databinding.ActivityMainBinding;
 
-public class MainActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
     ActivityMainBinding act;
 
