@@ -1,11 +1,10 @@
 package com.tjeit.loginserverconnectpractice0512;
 
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.tjeit.loginserverconnectpractice0512.databinding.ActivityMainBinding;
+import com.tjeit.loginserverconnectpractice0512.databinding.ActivityLoginBinding;
 import com.tjeit.loginserverconnectpractice0512.utils.ConnectServer;
 import com.tjeit.loginserverconnectpractice0512.utils.ContextUtil;
 
@@ -13,12 +12,12 @@ import org.json.JSONObject;
 
 public class LoginActivity extends BaseActivity {
 
-    ActivityMainBinding act;
+    ActivityLoginBinding act;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         bindViews();
         setupEvents();
@@ -63,6 +62,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void bindViews() {
-        act = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        act = DataBindingUtil.setContentView(this,R.layout.activity_login);
     }
 }

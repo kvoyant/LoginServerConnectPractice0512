@@ -16,7 +16,7 @@ public class ContextUtil {
 
 //    setter : ID를 저장하는 id_setter
 
-    public static void setUserInputId(Context context, String InputId) {
+    public static void setUserInputId(Context context, String inputId) {
 //        메모장 파일 (txt) 를 여는 작업.
 
         SharedPreferences pref = context.getSharedPreferences(prefName, context.MODE_PRIVATE);
