@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImg"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:civ_border_color="#000000"
+                tools:src="@mipmap/ic_launcher" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/userNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보유금액"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/userBalanceTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사용자 이름이 표시 됩니다."
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/userBalanceTxt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="거래은행."
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
