@@ -9,8 +9,8 @@ public class ContextUtil {
     private static final String prefName = "LoginServerPracticePref";
 
     //    이 메모에서 다루는 항목들의 리스트를 변수로 생성
-    private static final String USER_INPUT_ID = "";
-    private static final String USER_INPUT_PW = "";
+    private static final String USER_INPUT_ID = "USER_INPUT_ID";
+    private static final String USER_TOKEN = "USER_TOKEN";
 
 //    실제로 각각의 항목을 저장 /불러오는 기능
 
@@ -32,5 +32,15 @@ public class ContextUtil {
 
         return  pref.getString(USER_INPUT_ID, "");
 
+    }
+
+    public static void setUserToken(Context context, String token) {
+        SharedPreferences pref = context.getSharedPreferences(prefName, context.MODE_PRIVATE);
+        pref.edit().putString(USER_TOKEN, token).apply();
+    }
+
+    public static String getUserToken(Context context) {
+        SharedPreferences pref = context.getSharedPreferences(prefName, context.MODE_PRIVATE);
+        return  pref.getString(USER_TOKEN, "");
     }
 }
