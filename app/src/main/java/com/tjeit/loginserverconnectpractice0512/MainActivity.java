@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tjeit.loginserverconnectpractice0512.databinding.ActivityMainBinding;
 import com.tjeit.loginserverconnectpractice0512.utils.ConnectServer;
 
@@ -50,7 +51,7 @@ public class MainActivity extends BaseActivity {
                         try {
                             int code = json.getInt("code");
 
-                            if(code == 200 ) {
+                            if (code == 200) {
 //                                정상수신
 //                                JSONObject data = json.getJSONObject("data");
 //                                JSONObject userInfo = data.getJSONObject("user");
@@ -68,27 +69,55 @@ public class MainActivity extends BaseActivity {
 //                                TextView bankAccoutTxt = view.findViewById(R.id.bankAccountTxt);
 
 
+//                                정상적으로 데이터 수신
+
                                 JSONObject data = json.getJSONObject("data");
-                                JSONObject userInfo = data.getJSONObject("user");
 
-                                String profile_image = userInfo.getString("profile_image");//프사경로
-                                String name = userInfo.getString("name");//사용자 이름
-                                int balance = userInfo.getInt("balance");//보유금액
+                                JSONObject user = data.getJSONObject("user");
 
-                                JSONObject bank_code = userInfo.getJSONObject("bank_code");
+//                                프사 경로
+                                String profile_image = user.getString("profile_image");
+//                                사용자 이름
+                                String name = user.getString("name");
+//                                보유 잔고
+                                int balance = user.getInt("balance");
 
-                                String logo = bank_code.getString("logo");//은행로고
-                                String bankName = bank_code.getString("name");//거래은행이름
-                                String billing_account = userInfo.getString("billing_account");//계좌번호
+//                                은행 로고를 따기 전에 bank_code JSONObject 부터
+                                JSONObject bank_code = user.getJSONObject("bank_code");
+
+//                                은행 정보 안에 있는 로고 경로
+
+                                String logo = bank_code.getString("logo");
+//                                 은행 이름
+                                String bankName = bank_code.getString("name");
+
+                                String billing_account = user.getString("billing_account");
 
 
+//                                프로필 이미지 출력
+                                Glide.with(mContext).load(profile_image).into(act.profileImg);
+
+//                                사용자 이름 출력
+
+                                act.userNameTxt.setText(name);
+
+//                                사용자 보유 잔고를 ,찍는 양식으로 출력
+                                act.userBalnceTxt.setText(String.format("%,d P", balance));
+
+//                                  은행 로고 출력
+
+                                Glide.with(mContext).load(logo).into(act.bankLogoImg);
+
+//                                은행 이름 출력
+
+                                act.bankNameTxt.setText(bankName);
+
+//                                사용자 은행 계좌 출력
+
+                                act.bankAccountTxt.setText(billing_account);
 
 
-
-
-
-                            }
-                            else {
+                            } else {
 
                             }
                         } catch (JSONException e) {
